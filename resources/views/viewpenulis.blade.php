@@ -5,7 +5,7 @@
             <h6>Daftar Penulis</h6>
         </div>
         <div class="col-md-6 text-end">
-            <a href="{{ url('/addpenulis') }}" class="btn btn-primary mb-3">Tambah Penulis</a>
+            <a href="{{ route('penulis.create') }}" class="btn btn-primary mb-3">Tambah Penulis</a>
         </div>
     </div>
     <table class="table table-condensed">

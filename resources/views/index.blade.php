@@ -13,13 +13,13 @@
             <a class="navbar-brand" href="#">LSP 2026</a>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Beranda</a>
+                    <a class="nav-link" href=".">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Berita</a>
+                    <a class="nav-link" href="{{ route('berita.index') }}">Berita</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Penulis</a>
+                    <a class="nav-link" href="{{ route('penulis.index') }}">Penulis</a>
                 </li>
             </ul>
         </div>

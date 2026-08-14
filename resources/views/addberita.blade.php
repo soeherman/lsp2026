@@ -32,7 +32,7 @@
         </div>
         <div class="card-footer">
             <button type="submit" class="btn btn-primary mt-3">Simpan</button>
-            <a href="" class="btn btn-outline-secondary mt-3">Kembali</a>
+            <a href="{{ route('berita.index') }}" class="btn btn-outline-secondary mt-3">Kembali</a>
         </div>
     </div>
 @endsection

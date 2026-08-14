@@ -5,7 +5,7 @@
             <h6>Daftar Berita</h6>
         </div>
         <div class="col-md-6 text-end">
-            <a href="{{ url('/addberita') }}" class="btn btn-primary mb-3">Tambah Berita</a>
+            <a href="{{ route('berita.create') }}" class="btn btn-primary mb-3">Tambah Berita</a>
         </div>
     </div>
     <table class="table table-bordered">

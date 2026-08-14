@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PenulisController;
+use App\Http\Controllers\BeritaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,14 +19,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/anak', function () {
-    return view('anak');
-});
-
-Route::get('/berita', function () {
-    return view('viewberita');
-});
-
-Route::get('/penulis', function () {
-    return view('addberita');
-});
+Route::resource('penulis', PenulisController::class);
+Route::resource('berita', BeritaController::class);
