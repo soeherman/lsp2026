@@ -1,0 +1,22 @@
+@extends('index')
+@section('konten')
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Judul</th>
+                <th>Gambar</th>
+                <th>Penulis</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+@endsection
