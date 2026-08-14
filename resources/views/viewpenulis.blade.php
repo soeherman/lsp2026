@@ -1,10 +1,19 @@
 @extends('index')
 @section('konten')
-    <table class="table table-bordered">
+    <div class="row">
+        <div class="col-md-6">
+            <h6>Daftar Penulis</h6>
+        </div>
+        <div class="col-md-6 text-end">
+            <a href="{{ url('/addpenulis') }}" class="btn btn-primary mb-3">Tambah Penulis</a>
+        </div>
+    </div>
+    <table class="table table-condensed">
         <thead>
             <tr>
                 <th>No</th>
                 <th>Nama</th>
+                <th>Username</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -13,6 +22,8 @@
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
             </tr>
         </tbody>
+    </table>
 @endsection

@@ -22,5 +22,9 @@ Route::get('/anak', function () {
 });
 
 Route::get('/berita', function () {
-    return view('berita');
+    return view('viewberita');
+});
+
+Route::get('/penulis', function () {
+    return view('addberita');
 });

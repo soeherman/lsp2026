@@ -7,7 +7,7 @@
     <title>LSP 2026</title>
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="#">LSP 2026</a>
@@ -25,7 +25,7 @@
         </div>
     </nav>
 
-    <div class="container mt-4" style="min-height: 100vh !important;">
+    <div class="container mt-4 flex-grow-1">
         @yield('konten')
     </div>
 
