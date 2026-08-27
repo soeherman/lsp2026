@@ -1,5 +1,6 @@
 @extends('index')
 @section('konten')
+<form action="{{ route('berita.update', $berita->id) }}" method="POST">
     <div class="card">
         <div class="card-header">
             <h5>Tambah Berita</h5>
@@ -7,26 +8,23 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-12">
-                    <form action="" method="POST">
+                        @csrf
+                        @method('PUT')
                         <div class="form-group">
                             <label>Judul</label>
-                            <input type="text" name="judul" class="form-control">
+                            <input type="text" name="judul" class="form-control" value="{{ $berita->judul }}">
                         </div>
                         <div class="form-group">
                             <label>Gambar</label>
                             <input type="file" name="gambar" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>Penulis</label>
-                            <select name="penulis" class="form-control">
-                                <option value="">Pilih Penulis</option>
-                            </select>
+                            @if ($berita->image)
+                                <img src="{{ asset('storage/' . $berita->image) }}" alt="Gambar Berita" width="100" class="mt-2">
+                            @endif
                         </div>
                         <div class="form-group">
                             <label>Konten</label>
-                            <textarea name="isi" class="form-control"></textarea>
+                            <textarea name="konten" class="form-control">{{ $berita->konten }}</textarea>
                         </div>
-                    </form>
                 </div>
             </div>
         </div>
@@ -35,4 +33,5 @@
             <a href="{{ route('berita.index') }}" class="btn btn-outline-secondary mt-3">Kembali</a>
         </div>
     </div>
+</form>
 @endsection

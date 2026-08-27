@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PenulisController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +17,13 @@ use App\Http\Controllers\BeritaController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('beranda');
 });
+
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::resource('penulis', PenulisController::class);
 Route::resource('berita', BeritaController::class);
+

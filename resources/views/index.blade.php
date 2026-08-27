@@ -18,8 +18,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('berita.index') }}">Berita</a>
                 </li>
+                @if(session('penulis_role') == '1')
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('penulis.index') }}">Penulis</a>
+                </li>
+                @endif
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('logout') }}">Keluar</a>
                 </li>
             </ul>
         </div>

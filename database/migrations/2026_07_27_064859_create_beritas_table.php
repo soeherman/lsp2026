@@ -14,13 +14,11 @@ return new class extends Migration
         Schema::create('beritas', function (Blueprint $table) {
             $table->id();
             $table->string('judul');
-            $table->text('isi');
-            $table->string('gambar')->nullable();
-            $table->unsignedBigInteger('penulis_id');
-            $table->enum('kategori', ['Politik', 'Ekonomi', 'Olahraga', 'Teknologi'])->default('Politik');
+            $table->text('konten');
+            $table->date('tanggal');
+            $table->string('image');
+            $table->foreignId('penulis_id')->constrained();
             $table->timestamps();
-            
-            $table->foreign('penulis_id')->references('id')->on('penulis');
         });
     }
 
