@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 // Masukkan use statement ini di bagian atas file BeritaController.php
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+// Pengunaan model
 use App\Models\Berita;
 
 class BeritaController extends Controller
@@ -31,30 +32,34 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = Validator::make($request->all(), [
+        // Antisipasi soal minta validasi
+        $valid = Validator::make($request->all(), [
             'judul' => 'required',
             'konten' => 'required',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'gambar' => 'required',
         ]);
 
-        if($validatedData->fails()) {
-            return redirect()->back()->withErrors($validatedData)->withInput();
+        if($valid->fails()) {
+            return redirect()->back()->withErrors($valid)->withInput();
         }
+        // Akhir Antisipasi
 
-        $berita = new Berita();
-        $berita->judul = $request->input('judul');
-        $berita->konten = $request->input('konten');
-        $berita->tanggal = date('Y-m-d'); // Set tanggal to the current date
-        $berita->penulis_id = session('penulis_id'); 
+        $b = new Berita();
+        $b->judul = $request->input('judul');
+        $b->konten = $request->input('konten');
+        $b->tanggal = date('Y-m-d'); // Set tanggal to the current date
+        $b->penulis_id = session('penulis_id'); 
 
         if ($request->hasFile('gambar')) {
             $imagePath = $request->file('gambar')->store('images', 'public');
-            $berita->image = $imagePath;
+            $b->image = $imagePath;
         }
 
-        $berita->save();
+        $b->save();
 
         return redirect()->route('berita.index')->with('success', 'Berita berhasil ditambahkan.');
+        // Solusi tanpa pesan
+        // return redirect()->route('berita.index');
     }
 
     /**
@@ -80,17 +85,19 @@ class BeritaController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        // Antisipasi soal minta validasi
         $request->validate([
             'judul' => 'required',
             'konten' => 'required',
             'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+        // Akhir Antisipasi
 
         $berita = Berita::findOrFail($id);
         $berita->judul = $request->input('judul');
         $berita->konten = $request->input('konten');
         $berita->tanggal = date('Y-m-d'); // Set tanggal to the current date
-        $berita->penulis_id = session('penulis_id');
+        $berita->penulis_id = 1;
 
         if ($request->hasFile('gambar')) {
             $imagePath = $request->file('gambar')->store('images', 'public');

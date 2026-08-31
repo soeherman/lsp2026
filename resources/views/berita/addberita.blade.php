@@ -11,15 +11,15 @@
                         @csrf
                         <div class="form-group">
                             <label>Judul</label>
-                            <input type="text" name="judul" class="form-control">
+                            <input type="text" name="judul" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label>Gambar</label>
-                            <input type="file" name="gambar" class="form-control">
+                            <input type="file" name="gambar" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label>Konten</label>
-                            <textarea name="konten" class="form-control"></textarea>
+                            <textarea name="konten" class="form-control" required></textarea>
                         </div>
                 </div>
             </div>

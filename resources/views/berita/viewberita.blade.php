@@ -1,10 +1,12 @@
 @extends('index')
 @section('konten')
+    {{-- Optional untuk menampilkan pesan --}}
     @if (session('success'))
         <div class="alert alert-success mt-4">
             {{ session('success') }}
         </div>
     @endif
+    {{-- Akhir optional --}}
     <div class="row">
         <div class="col-md-6">
             <h6>Daftar Berita</h6>
@@ -13,6 +15,7 @@
             <a href="{{ route('berita.create') }}" class="btn btn-primary mb-3">Tambah Berita</a>
         </div>
     </div>
+    
     <table class="table table-bordered">
         <thead>
             <tr>

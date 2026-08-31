@@ -8,10 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Penulis extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'nama',
-        'email',
-        'password',
-        'role'
-    ];
+    protected $fillable = ['nama','email','password','role'];
 }
