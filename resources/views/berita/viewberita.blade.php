@@ -23,6 +23,7 @@
                 <th>Judul</th>
                 <th>Gambar</th>
                 <th>Penulis</th>
+                <th>Kategori</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -39,6 +40,7 @@
                         @endif
                     </td>
                     <td>{{ $berita->penulis->nama ?? 'Tidak ada penulis' }}</td>
+                    <td>{{ $berita->kategori->nama_kategori ?? 'Tidak ada kategori' }}</td>
                     <td>
                         <a href="{{ route('berita.show', $berita->id) }}" class="btn btn-info btn-sm">Lihat</a>
                         <a href="{{ route('berita.edit', $berita->id) }}" class="btn btn-warning btn-sm">Edit</a>

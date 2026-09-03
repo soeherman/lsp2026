@@ -9,10 +9,15 @@ class Berita extends Model
 {
     use HasFactory;
 
-     protected $fillable = ['judul','konten','tanggal','image','penulis_id'];
+     protected $fillable = ['judul','konten','tanggal','image','penulis_id','kategori_id'];
 
     public function penulis()
     {
         return $this->belongsTo(Penulis::class);
+    }
+
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class);
     }
 }

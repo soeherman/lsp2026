@@ -3,7 +3,7 @@
 <form action="{{ route('berita.update', $berita->id) }}" method="POST">
     <div class="card">
         <div class="card-header">
-            <h5>Tambah Berita</h5>
+            <h5>Edit Berita</h5>
         </div>
         <div class="card-body">
             <div class="row">
@@ -24,6 +24,17 @@
                         <div class="form-group">
                             <label>Konten</label>
                             <textarea name="konten" class="form-control">{{ $berita->konten }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Kategori</label>
+                            <select name="kategori_id" class="form-control" required>
+                                <option value="">Pilih Kategori</option>
+                                @foreach ($kategoris as $kategori)
+                                    <option value="{{ $kategori->id }}" {{ $berita->kategori_id == $kategori->id ? 'selected' : '' }}>
+                                        {{ $kategori->nama_kategori }}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
                 </div>
             </div>

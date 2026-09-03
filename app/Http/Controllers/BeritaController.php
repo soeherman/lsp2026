@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 // Pengunaan model
 use App\Models\Berita;
+use App\Models\Kategori;
 
 class BeritaController extends Controller
 {
@@ -15,7 +16,7 @@ class BeritaController extends Controller
      */
     public function index()
     {
-        $beritas = Berita::with('penulis')->get();
+        $beritas = Berita::with('penulis', 'kategori')->get();
         return view('berita/viewberita', compact('beritas'));
     }
 
@@ -24,7 +25,8 @@ class BeritaController extends Controller
      */
     public function create()
     {
-        return view('berita/addberita');
+        $kategoris = Kategori::all();
+        return view('berita/addberita', compact('kategoris'));
     }
 
     /**
@@ -49,6 +51,7 @@ class BeritaController extends Controller
         $b->konten = $request->input('konten');
         $b->tanggal = date('Y-m-d'); // Set tanggal to the current date
         $b->penulis_id = session('penulis_id'); 
+        $b->kategori_id = $request->input('kategori_id');
 
         if ($request->hasFile('gambar')) {
             $imagePath = $request->file('gambar')->store('images', 'public');
@@ -77,7 +80,8 @@ class BeritaController extends Controller
     public function edit(string $id)
     {
         $berita = Berita::findOrFail($id);
-        return view('berita/editberita', compact('berita'));
+        $kategoris = Kategori::all();
+        return view('berita/editberita', compact('berita', 'kategoris'));
     }
 
     /**
@@ -98,6 +102,7 @@ class BeritaController extends Controller
         $berita->konten = $request->input('konten');
         $berita->tanggal = date('Y-m-d'); // Set tanggal to the current date
         $berita->penulis_id = 1;
+        $berita->kategori_id = $request->input('kategori_id');
 
         if ($request->hasFile('gambar')) {
             $imagePath = $request->file('gambar')->store('images', 'public');

@@ -2,10 +2,11 @@
 
 Langkah-langkah yang harus dilakukan
 
-- Buat Migrasi (Done)
+- Buat Migrasi (Sesuai urutan dibawah)
 - Buat View Menggunakan konsep Blade Templating 
 
 ## Cara membuat Model + Migration
+`php artisan make:model Kategori -m` <br>
 `php artisan make:model Penulis -m` <br>
 `php artisan make:model Berita -m`
 
